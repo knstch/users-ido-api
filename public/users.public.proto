@@ -1,0 +1,24 @@
+syntax = "proto3";
+package users.public;
+option go_package = "./";
+
+service Template {
+  rpc AuthViaGoogle(AuthViaGoogleRequest) returns (AuthViaGoogleResponse);
+  rpc GoogleOAuthCallback(GoogleOAuthCallbackRequest) returns (GoogleOAuthCallbackResponse);
+}
+
+message AuthViaGoogleRequest {
+  string state = 1;
+}
+
+message AuthViaGoogleResponse {}
+
+message GoogleOAuthCallbackRequest {
+  string code = 1;
+  string state = 2;
+  string error = 3;
+  string error_description = 4;
+  string scope = 5;
+}
+
+message GoogleOAuthCallbackResponse {}
