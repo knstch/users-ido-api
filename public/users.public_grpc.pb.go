@@ -19,139 +19,139 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Template_AuthViaGoogle_FullMethodName       = "/users.public.Template/AuthViaGoogle"
-	Template_GoogleOAuthCallback_FullMethodName = "/users.public.Template/GoogleOAuthCallback"
+	Users_AuthViaGoogle_FullMethodName       = "/users.public.Users/AuthViaGoogle"
+	Users_GoogleOAuthCallback_FullMethodName = "/users.public.Users/GoogleOAuthCallback"
 )
 
-// TemplateClient is the client API for Template service.
+// UsersClient is the client API for Users service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TemplateClient interface {
+type UsersClient interface {
 	AuthViaGoogle(ctx context.Context, in *AuthViaGoogleRequest, opts ...grpc.CallOption) (*AuthViaGoogleResponse, error)
 	GoogleOAuthCallback(ctx context.Context, in *GoogleOAuthCallbackRequest, opts ...grpc.CallOption) (*GoogleOAuthCallbackResponse, error)
 }
 
-type templateClient struct {
+type usersClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewTemplateClient(cc grpc.ClientConnInterface) TemplateClient {
-	return &templateClient{cc}
+func NewUsersClient(cc grpc.ClientConnInterface) UsersClient {
+	return &usersClient{cc}
 }
 
-func (c *templateClient) AuthViaGoogle(ctx context.Context, in *AuthViaGoogleRequest, opts ...grpc.CallOption) (*AuthViaGoogleResponse, error) {
+func (c *usersClient) AuthViaGoogle(ctx context.Context, in *AuthViaGoogleRequest, opts ...grpc.CallOption) (*AuthViaGoogleResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AuthViaGoogleResponse)
-	err := c.cc.Invoke(ctx, Template_AuthViaGoogle_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Users_AuthViaGoogle_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *templateClient) GoogleOAuthCallback(ctx context.Context, in *GoogleOAuthCallbackRequest, opts ...grpc.CallOption) (*GoogleOAuthCallbackResponse, error) {
+func (c *usersClient) GoogleOAuthCallback(ctx context.Context, in *GoogleOAuthCallbackRequest, opts ...grpc.CallOption) (*GoogleOAuthCallbackResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GoogleOAuthCallbackResponse)
-	err := c.cc.Invoke(ctx, Template_GoogleOAuthCallback_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Users_GoogleOAuthCallback_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// TemplateServer is the server API for Template service.
-// All implementations must embed UnimplementedTemplateServer
+// UsersServer is the server API for Users service.
+// All implementations must embed UnimplementedUsersServer
 // for forward compatibility.
-type TemplateServer interface {
+type UsersServer interface {
 	AuthViaGoogle(context.Context, *AuthViaGoogleRequest) (*AuthViaGoogleResponse, error)
 	GoogleOAuthCallback(context.Context, *GoogleOAuthCallbackRequest) (*GoogleOAuthCallbackResponse, error)
-	mustEmbedUnimplementedTemplateServer()
+	mustEmbedUnimplementedUsersServer()
 }
 
-// UnimplementedTemplateServer must be embedded to have
+// UnimplementedUsersServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedTemplateServer struct{}
+type UnimplementedUsersServer struct{}
 
-func (UnimplementedTemplateServer) AuthViaGoogle(context.Context, *AuthViaGoogleRequest) (*AuthViaGoogleResponse, error) {
+func (UnimplementedUsersServer) AuthViaGoogle(context.Context, *AuthViaGoogleRequest) (*AuthViaGoogleResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AuthViaGoogle not implemented")
 }
-func (UnimplementedTemplateServer) GoogleOAuthCallback(context.Context, *GoogleOAuthCallbackRequest) (*GoogleOAuthCallbackResponse, error) {
+func (UnimplementedUsersServer) GoogleOAuthCallback(context.Context, *GoogleOAuthCallbackRequest) (*GoogleOAuthCallbackResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GoogleOAuthCallback not implemented")
 }
-func (UnimplementedTemplateServer) mustEmbedUnimplementedTemplateServer() {}
-func (UnimplementedTemplateServer) testEmbeddedByValue()                  {}
+func (UnimplementedUsersServer) mustEmbedUnimplementedUsersServer() {}
+func (UnimplementedUsersServer) testEmbeddedByValue()               {}
 
-// UnsafeTemplateServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TemplateServer will
+// UnsafeUsersServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to UsersServer will
 // result in compilation errors.
-type UnsafeTemplateServer interface {
-	mustEmbedUnimplementedTemplateServer()
+type UnsafeUsersServer interface {
+	mustEmbedUnimplementedUsersServer()
 }
 
-func RegisterTemplateServer(s grpc.ServiceRegistrar, srv TemplateServer) {
-	// If the following call pancis, it indicates UnimplementedTemplateServer was
+func RegisterUsersServer(s grpc.ServiceRegistrar, srv UsersServer) {
+	// If the following call pancis, it indicates UnimplementedUsersServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&Template_ServiceDesc, srv)
+	s.RegisterService(&Users_ServiceDesc, srv)
 }
 
-func _Template_AuthViaGoogle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Users_AuthViaGoogle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AuthViaGoogleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TemplateServer).AuthViaGoogle(ctx, in)
+		return srv.(UsersServer).AuthViaGoogle(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Template_AuthViaGoogle_FullMethodName,
+		FullMethod: Users_AuthViaGoogle_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TemplateServer).AuthViaGoogle(ctx, req.(*AuthViaGoogleRequest))
+		return srv.(UsersServer).AuthViaGoogle(ctx, req.(*AuthViaGoogleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Template_GoogleOAuthCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Users_GoogleOAuthCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GoogleOAuthCallbackRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TemplateServer).GoogleOAuthCallback(ctx, in)
+		return srv.(UsersServer).GoogleOAuthCallback(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Template_GoogleOAuthCallback_FullMethodName,
+		FullMethod: Users_GoogleOAuthCallback_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TemplateServer).GoogleOAuthCallback(ctx, req.(*GoogleOAuthCallbackRequest))
+		return srv.(UsersServer).GoogleOAuthCallback(ctx, req.(*GoogleOAuthCallbackRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// Template_ServiceDesc is the grpc.ServiceDesc for Template service.
+// Users_ServiceDesc is the grpc.ServiceDesc for Users service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var Template_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "users.public.Template",
-	HandlerType: (*TemplateServer)(nil),
+var Users_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "users.public.Users",
+	HandlerType: (*UsersServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "AuthViaGoogle",
-			Handler:    _Template_AuthViaGoogle_Handler,
+			Handler:    _Users_AuthViaGoogle_Handler,
 		},
 		{
 			MethodName: "GoogleOAuthCallback",
-			Handler:    _Template_GoogleOAuthCallback_Handler,
+			Handler:    _Users_GoogleOAuthCallback_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

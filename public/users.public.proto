@@ -2,7 +2,7 @@ syntax = "proto3";
 package users.public;
 option go_package = "./";
 
-service Template {
+service Users {
   rpc AuthViaGoogle(AuthViaGoogleRequest) returns (AuthViaGoogleResponse);
   rpc GoogleOAuthCallback(GoogleOAuthCallbackRequest) returns (GoogleOAuthCallbackResponse);
 }

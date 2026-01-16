@@ -227,8 +227,8 @@ const file_users_public_proto_rawDesc = "" +
 	"\x05error\x18\x03 \x01(\tR\x05error\x12+\n" +
 	"\x11error_description\x18\x04 \x01(\tR\x10errorDescription\x12\x14\n" +
 	"\x05scope\x18\x05 \x01(\tR\x05scope\"\x1d\n" +
-	"\x1bGoogleOAuthCallbackResponse2\xd0\x01\n" +
-	"\bTemplate\x12X\n" +
+	"\x1bGoogleOAuthCallbackResponse2\xcd\x01\n" +
+	"\x05Users\x12X\n" +
 	"\rAuthViaGoogle\x12\".users.public.AuthViaGoogleRequest\x1a#.users.public.AuthViaGoogleResponse\x12j\n" +
 	"\x13GoogleOAuthCallback\x12(.users.public.GoogleOAuthCallbackRequest\x1a).users.public.GoogleOAuthCallbackResponseB\x04Z\x02./b\x06proto3"
 
@@ -252,10 +252,10 @@ var file_users_public_proto_goTypes = []any{
 	(*GoogleOAuthCallbackResponse)(nil), // 3: users.public.GoogleOAuthCallbackResponse
 }
 var file_users_public_proto_depIdxs = []int32{
-	0, // 0: users.public.Template.AuthViaGoogle:input_type -> users.public.AuthViaGoogleRequest
-	2, // 1: users.public.Template.GoogleOAuthCallback:input_type -> users.public.GoogleOAuthCallbackRequest
-	1, // 2: users.public.Template.AuthViaGoogle:output_type -> users.public.AuthViaGoogleResponse
-	3, // 3: users.public.Template.GoogleOAuthCallback:output_type -> users.public.GoogleOAuthCallbackResponse
+	0, // 0: users.public.Users.AuthViaGoogle:input_type -> users.public.AuthViaGoogleRequest
+	2, // 1: users.public.Users.GoogleOAuthCallback:input_type -> users.public.GoogleOAuthCallbackRequest
+	1, // 2: users.public.Users.AuthViaGoogle:output_type -> users.public.AuthViaGoogleResponse
+	3, // 3: users.public.Users.GoogleOAuthCallback:output_type -> users.public.GoogleOAuthCallbackResponse
 	2, // [2:4] is the sub-list for method output_type
 	0, // [0:2] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
