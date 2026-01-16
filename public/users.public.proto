@@ -21,4 +21,8 @@ message GoogleOAuthCallbackRequest {
   string scope = 5;
 }
 
-message GoogleOAuthCallbackResponse {}
+message GoogleOAuthCallbackResponse {
+  string access_token = 1;
+  string refresh_token = 2;
+  string redirect_url = 3;
+}
