@@ -11,7 +11,9 @@ message AuthViaGoogleRequest {
   string state = 1;
 }
 
-message AuthViaGoogleResponse {}
+message AuthViaGoogleResponse {
+  string login_url = 1;
+}
 
 message GoogleOAuthCallbackRequest {
   string code = 1;
