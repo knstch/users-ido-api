@@ -2,11 +2,37 @@ syntax = "proto3";
 package users.public;
 option go_package = "./";
 
+import "google/api/annotations.proto";
+
 service Users {
-  rpc AuthViaGoogle(AuthViaGoogleRequest) returns (AuthViaGoogleResponse);
-  rpc GoogleOAuthCallback(GoogleOAuthCallbackRequest) returns (GoogleOAuthCallbackResponse);
-  rpc RefreshAccessToken(RefreshAccessTokenRequest) returns (RefreshAccessTokenResponse);
-  rpc GetUser(GetUserRequest) returns (GetUserResponse);
+  // GET /authViaGoogle
+  rpc AuthViaGoogle(AuthViaGoogleRequest) returns (AuthViaGoogleResponse) {
+    option (google.api.http) = {
+      get: "/authViaGoogle"
+    };
+  }
+
+  // GET /googleOAuthCallback
+  rpc GoogleOAuthCallback(GoogleOAuthCallbackRequest) returns (GoogleOAuthCallbackResponse) {
+    option (google.api.http) = {
+      get: "/googleOAuthCallback"
+    };
+  }
+
+  // POST /refreshAccessToken
+  rpc RefreshAccessToken(RefreshAccessTokenRequest) returns (RefreshAccessTokenResponse) {
+    option (google.api.http) = {
+      post: "/refreshAccessToken"
+      body: "*"
+    };
+  }
+
+  // GET /getUser
+  rpc GetUser(GetUserRequest) returns (GetUserResponse) {
+    option (google.api.http) = {
+      get: "/getUser"
+    };
+  }
 }
 
 message AuthViaGoogleRequest {
