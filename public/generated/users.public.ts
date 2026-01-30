@@ -23,27 +23,27 @@ export interface definitions {
     "@type"?: string;
   } & { [key: string]: unknown };
   publicAuthViaGoogleResponse: {
-    loginUrl?: string;
+    login_url?: string;
   };
   publicGetUserResponse: {
     /** Format: uint64 */
     ID?: string;
     email?: string;
-    firstName?: string;
-    lastName?: string;
-    profilePicture?: string;
+    first_name?: string;
+    last_name?: string;
+    profile_picture?: string;
   };
   publicGoogleOAuthCallbackResponse: {
-    accessToken?: string;
-    refreshToken?: string;
-    redirectUrl?: string;
+    access_token?: string;
+    refresh_token?: string;
+    redirect_url?: string;
   };
   publicRefreshAccessTokenRequest: {
-    refreshToken?: string;
+    refresh_token?: string;
   };
   publicRefreshAccessTokenResponse: {
-    accessToken?: string;
-    refreshToken?: string;
+    access_token?: string;
+    refresh_token?: string;
   };
   rpcStatus: {
     /** Format: int32 */
@@ -95,7 +95,7 @@ export interface operations {
         code?: string;
         state?: string;
         error?: string;
-        errorDescription?: string;
+        error_description?: string;
         scope?: string;
       };
     };
