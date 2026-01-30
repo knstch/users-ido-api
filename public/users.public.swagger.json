@@ -123,7 +123,7 @@
             "type": "string"
           },
           {
-            "name": "errorDescription",
+            "name": "error_description",
             "in": "query",
             "required": false,
             "type": "string"
@@ -187,7 +187,7 @@
     "publicAuthViaGoogleResponse": {
       "type": "object",
       "properties": {
-        "loginUrl": {
+        "login_url": {
           "type": "string"
         }
       }
@@ -202,13 +202,13 @@
         "email": {
           "type": "string"
         },
-        "firstName": {
+        "first_name": {
           "type": "string"
         },
-        "lastName": {
+        "last_name": {
           "type": "string"
         },
-        "profilePicture": {
+        "profile_picture": {
           "type": "string"
         }
       }
@@ -216,13 +216,13 @@
     "publicGoogleOAuthCallbackResponse": {
       "type": "object",
       "properties": {
-        "accessToken": {
+        "access_token": {
           "type": "string"
         },
-        "refreshToken": {
+        "refresh_token": {
           "type": "string"
         },
-        "redirectUrl": {
+        "redirect_url": {
           "type": "string"
         }
       }
@@ -230,7 +230,7 @@
     "publicRefreshAccessTokenRequest": {
       "type": "object",
       "properties": {
-        "refreshToken": {
+        "refresh_token": {
           "type": "string"
         }
       }
@@ -238,10 +238,10 @@
     "publicRefreshAccessTokenResponse": {
       "type": "object",
       "properties": {
-        "accessToken": {
+        "access_token": {
           "type": "string"
         },
-        "refreshToken": {
+        "refresh_token": {
           "type": "string"
         }
       }
